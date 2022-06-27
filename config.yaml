@@ -1,0 +1,103 @@
+name: "[VER:1.1g.20170629-Inventables:]"
+board: "[VER:1.1g.20170629-Inventables:]"
+verbose_errors: true
+
+stepping:
+  engine: RMT
+  idle_ms: 250
+  dir_delay_us: 1
+  pulse_us: 10
+  disable_delay_us: 0
+
+axes:
+  shared_stepper_disable_pin: NO_PIN
+  
+  x:
+    steps_per_mm: 40.000
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 50.000
+    max_travel_mm: 750.000
+    homing:
+      cycle: 2
+      mpos_mm: 10
+      positive_direction: false
+    
+    motor0:
+      limit_all_pin: gpio.17:low:pu
+      stepstick:
+        direction_pin: gpio.14
+        step_pin: gpio.12
+    motor1:
+      null_motor:
+
+  y:
+    steps_per_mm: 40.000
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 50.000
+    max_travel_mm: 750.000
+    homing:
+      cycle: 2
+      mpos_mm: 10
+      positive_direction: false
+
+    motor0:
+      limit_all_pin: gpio.4:low:pu
+      stepstick:
+        direction_pin: gpio.15:low
+        step_pin: gpio.26
+    motor1:
+      null_motor:
+
+  z:
+    steps_per_mm: 188.976
+    max_rate_mm_per_min: 2000
+    acceleration_mm_per_sec2: 50.000
+    max_travel_mm: 100.000
+    homing:
+      cycle: 1
+      mpos_mm: 10
+      positive_direction: true
+
+    motor0:
+      limit_all_pin: gpio.16:low:pu
+      stepstick:
+        direction_pin: gpio.33:low
+        step_pin: gpio.27
+    motor1:
+      null_motor:
+
+relay:
+  direction_pin: NO_PIN
+  output_pin: NO_PIN
+  enable_pin: gpio.13
+  spinup_ms: 0
+  spindown_ms: 0
+  tool_num: 0
+  speed_map: 0=0.000% 0=100.000% 1=100.000%
+  
+spi:
+  miso_pin: gpio.19
+  mosi_pin: gpio.23
+  sck_pin: gpio.18
+
+sdcard:
+  cs_pin: gpio.5
+  card_detect_pin: NO_PIN
+
+        
+probe:
+  pin: gpio.32:low:pu
+
+
+start:
+  must_home: false
+  deactivate_parking: false
+  check_limits: false
+
+  macros:
+  startup_line0: $$
+  startup_line1: 
+  macro0: 
+  macro1: 
+  macro2:
+  macro3:
