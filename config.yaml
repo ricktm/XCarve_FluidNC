@@ -11,39 +11,35 @@ axes:
   x:
     steps_per_mm: 20
     max_rate_mm_per_min: 2000
-    acceleration_mm_per_sec2: 150
-    max_travel_mm: 750.000
+    acceleration_mm_per_sec2: 150.000
+    max_travel_mm: 749.000
     homing:
       cycle: 2
-      positive_direction: false
       mpos_mm: 1
-
+      positive_direction: false
+      pulloff_mm: 2.000
     motor0:
       hard_limits: false
       limit_neg_pin: gpio.17:low:pu
-      pulloff_mm: 1.000
       standard_stepper:
         direction_pin: gpio.14
         step_pin: gpio.12
-
   y:
     steps_per_mm: 20
     max_rate_mm_per_min: 2000
     acceleration_mm_per_sec2: 150.000
-    max_travel_mm: 750.000
+    max_travel_mm: 749.000
     homing:
       cycle: 3
-      positive_direction: false
       mpos_mm: 1
+      positive_direction: false
+      pulloff_mm: 2.000
     motor0:
       hard_limits: false
       limit_neg_pin: gpio.4:low:pu
       standard_stepper:
         direction_pin: gpio.15:low
         step_pin: gpio.26
-    motor1:
-      null_motor:
-
   z:
     steps_per_mm: 188.976
     max_rate_mm_per_min: 2000
@@ -53,24 +49,27 @@ axes:
       cycle: 1
       mpos_mm: 1
       positive_direction: true
+      pulloff_mm: 2.000
+
     motor0:
       hard_limits: false
       limit_pos_pin: gpio.16:low:pu
       standard_stepper:
         direction_pin: gpio.33:low
         step_pin: gpio.27:low
-      motor1:
-        null_motor:    
 
 relay:
   direction_pin: NO_PIN
   output_pin: NO_PIN
   enable_pin: gpio.13
-  spinup_ms: 100
-  spindown_ms: 100
+  spinup_ms: 6000
+  spindown_ms: 6000
   tool_num: 0
   speed_map: 0=0.000% 0=100.000% 1=100.000%
-  
+control:
+  safety_door_pin: NO_PIN
+  reset_pin: NO_PIN
+  feed_hold_pin: NO_PIN
 spi:
   miso_pin: gpio.19
   mosi_pin: gpio.23
@@ -80,10 +79,8 @@ sdcard:
   cs_pin: gpio.5
   card_detect_pin: NO_PIN
 
-        
 probe:
   pin: gpio.32:low:pu
-
 
 start:
   must_home: false
